@@ -7,7 +7,9 @@ CONSTRAINTS=12
 PTAU_PATH="./setup/"
 PTAU_PREFIX="PowersOfTau${CONSTRAINTS}_local_"
 
-rm -rf ${PTAU_PATH}*
+if [ -d "$PTAU_PATH" ]; then
+   rm -rf ${PTAU_PATH}*
+fi
 
 echo "initiating local powersOfTau ceremony on curve ${CURVE} with max 2^${CONSTRAINTS}"
 echo "WARNING: this trusted-setup ceremony is only for development and does not provide production grade security"
