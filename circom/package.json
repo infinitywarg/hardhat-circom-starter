@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "bash ./scripts/0_install_circom.sh",
+    "setup": "bash ./scripts/1_plonk_setup.sh",
+    "build": "bash ./scripts/2_build_circuits.sh"
   },
   "keywords": [],
   "author": "",
