@@ -3,7 +3,7 @@
 CIRCUIT_PATH="./circuits/"
 BUILD_PATH="./build/"
 PTAU_FINAL_PATH="./setup/PowersOfTau12_local_final.ptau"
-VERIFIER_PATH="../hardhat/contracts/verifiers/"
+VERIFIER_PATH="./contracts/verifiers/"
 
 
 if [ -d "$BUILD_PATH" ]; then

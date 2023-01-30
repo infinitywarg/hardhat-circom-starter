@@ -12,8 +12,8 @@ async function generateProof(name: string, input: any): Promise<any> {
 	const circuit = name.slice(0, -8);
 	let { proof, publicSignals } = await plonk.fullProve(
 		input,
-		resolve(__dirname, `../../circom/build/${circuit}.circom/${circuit}.wasm`),
-		resolve(__dirname, `../../circom/build/${circuit}.circom/${circuit}.zkey`)
+		resolve(__dirname, `../build/${circuit}.circom/${circuit}.wasm`),
+		resolve(__dirname, `../build/${circuit}.circom/${circuit}.zkey`)
 	);
 	const calldata = await plonk.exportSolidityCallData(proof, publicSignals);
 	console.log({ proof: proof, publicSignals: publicSignals });
