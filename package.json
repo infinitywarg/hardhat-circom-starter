@@ -4,6 +4,11 @@
     "@nomicfoundation/hardhat-toolbox": "^2.0.1",
     "hardhat": "^2.12.6"
   },
+  "scripts": {
+    "install": "bash ./bash/0_install_circom.sh",
+    "setup": "bash ./bash/1_plonk_setup.sh",
+    "build": "bash ./bash/2_build_circuits.sh"
+  },
   "dependencies": {
     "circomlib": "^2.0.5",
     "circomlibjs": "^0.1.7",

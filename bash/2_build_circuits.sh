@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#check if circom2 is installed
-#TBA
-
 CIRCUIT_PATH="./circuits/"
 BUILD_PATH="./build/"
 PTAU_FINAL_PATH="./setup/PowersOfTau12_local_final.ptau"
