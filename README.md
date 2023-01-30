@@ -62,4 +62,4 @@
 
 ## Disclaimer <a name = "disclaimer"></a>
 
-zk-snarks starter is under active development. If you have any improvements / suggestions please file an [issue](https://github.com/infinitywarp/optionbound/issues/new/choose).
+zk-snarks starter is under active development. If you have any improvements / suggestions please file an [issue](https://github.com/infinitywarp/zksnark-starter/issues/new/choose).
