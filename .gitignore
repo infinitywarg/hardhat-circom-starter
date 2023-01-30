@@ -5,7 +5,9 @@ coverage.json
 typechain
 typechain-types
 
-# Hardhat files
+# Hardhat Files
 cache
 artifacts
 
+# Circom Files
+build
