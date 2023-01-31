@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="images/project.jpg" alt="Project logo"></a>
+ <img width=200px height=200px src="images/arrival_louis_has_weapon.jpeg" alt="Project logo"></a>
 </p>
 
 <h3 align="center">zkSNARKS Starter Kit</h3>
