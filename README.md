@@ -1,71 +1,6 @@
 <p align="center">
- <img src="https://i.imgur.com/rSyq3MW.png" alt="The Documentation Compendium"></a>
-</p>
-
-<h3 align="center">ZK-SNARKS STARTER</h3>
-<p align = "center">💡 Hardhat starter kit to build zero knowledge proof applications using circom and snark.js 💡</p>
-
-<div align="center">
-
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/infinitywarp/optionbound/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/infinitywarp/optionbound/pulls)
-[![License](https://img.shields.io/badge/license-CC0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-
-
-</div>
-
----
-
-## Table of Contents
-
-- [What are ZK-SNARKS?](#introduction_zksnarks)
-- [What are Trusted Setups?](#trusted_setups)
-- [How to use this starter?](#how_to_use)
-- [Some important circuit design patterns](#design_patterns)
-  - [Multiplexing Pattern](#multiplexing)
-  - [Merkle Tree Pattern](#merkle_tree)
-- [How to Contribute?](#contribute)
-- [License](#license)
-- [Communicate](#communicate)
-  - [LinkedIn](https://www.linkedin.com/in/anantwar/)
-- [Disclaimer](#disclaimer)
-
-## What are ZK-SNARKS? <a name = "introduction_zksnarks"></a>
-
-**Groth16**
-**Plonk**
-
-## What are Trusted Setups? <a name = "trusted_setups"></a>
-
-**Circuit Specific Setup**
-**Universal & Updatable Setup**
-**Transparent Setup**
-
-## How to use this starter? <a name = "how_to_use"></a>
-
-## Some important circuit design patterns <a name = "design_patterns"></a>
-
-
-## Some important circuit design patterns <a name = "design_patterns"></a>
-
-**Multiplexing Pattern**
-
-**Merkle Tree Pattern**
-
-## How to Contribute? <a name = "contribute"></a>
-
-## License <a name = "license"></a>
-
-## Communicate <a name = "communicate"></a>
-
-## Disclaimer <a name = "disclaimer"></a>
-
-zk-snarks starter is under active development. If you have any improvements / suggestions please file an [issue](https://github.com/infinitywarg/zksnark-starter/issues/new).
-
-<p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
+ <img width=200px height=200px src="images/project.jpg" alt="Project logo"></a>
 </p>
 
 <h3 align="center">zkSNARKS Starter Kit</h3>
@@ -86,13 +21,14 @@ zk-snarks starter is under active development. If you have any improvements / su
 ## 📝 Table of Contents
 - [About](#about)
 - [Getting Started](#getting_started)
-- [Deployment](#deployment)
+  - [What are zkSNARKS?](#zksnarks)
+  - [What are trusted setups in zkSNARKS?](#trusted_setups)
 - [Usage](#usage)
 - [Built Using](#built_using)
 - [TODO](../TODO.md)
 - [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
+- [Disclaimer](#disclaimer)
 
 ## 🧐 About <a name = "about"></a>
 Write about 1-2 paragraphs describing the purpose of your project.
@@ -158,7 +94,5 @@ Add additional notes about how to deploy this on a live system.
 
 See also the list of [contributors](https://github.com/infinitywarg/zksnark-starter/contributors) who participated in this project.
 
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
+##  Disclaimer <a name = "disclaimer"></a>
+- zk-snarks starter is under active development. If you have any improvements and suggestions please file an [issue](https://github.com/infinitywarg/zksnark-starter/issues/new).
