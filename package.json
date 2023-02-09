@@ -7,7 +7,9 @@
   "scripts": {
     "install": "bash ./bash/0_install_circom.sh",
     "setup": "bash ./bash/1_plonk_setup.sh",
-    "build": "bash ./bash/2_build_circuits.sh"
+    "build": "bash ./bash/2_build_circuits.sh",
+    "test:onchain":"echo \"work in progress\"",
+    "test:offchain":"echo \"work in progress\""
   },
   "dependencies": {
     "circomlib": "^2.0.5",

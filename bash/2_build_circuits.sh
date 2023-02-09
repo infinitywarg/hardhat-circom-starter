@@ -2,7 +2,7 @@
 
 CIRCUIT_PATH="./circuits/"
 BUILD_PATH="./build/"
-PTAU_FINAL_PATH="./setup/PowersOfTau12_local_final.ptau"
+PTAU_FINAL_PATH="./setup/PowersOfTau16_local_final.ptau"
 VERIFIER_PATH="./contracts/verifiers/"
 
 

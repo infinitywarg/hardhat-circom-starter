@@ -1,65 +1,75 @@
 <p align="center">
- <img src="https://i.imgur.com/rSyq3MW.png" alt="The Documentation Compendium"></a>
+  <a href="" rel="noopener">
+ <img width=200px height=200px src="images/arrival_louis_has_weapon.jpeg" alt="Project logo"></a>
 </p>
 
-<h3 align="center">ZK-SNARKS STARTER</h3>
-<p align = "center">💡 Hardhat starter kit to build zero knowledge proof applications using circom and snark.js 💡</p>
+<h3 align="center">zkSNARKS Starter Kit</h3>
 
 <div align="center">
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/infinitywarp/optionbound/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/infinitywarp/optionbound/pulls)
-[![License](https://img.shields.io/badge/license-CC0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-
-<!--   <a href="https://www.producthunt.com/posts/the-documentation-compendium?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-the-documentation-compendium" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=157965&theme=dark&period=daily" alt="The Documentation Compendium - Beautiful README templates that people want to read. | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a> -->
+  [![Status](https://img.shields.io/badge/status-active-success.svg)]() 
+  [![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/infinitywarg/zksnark-starter/issues)
+  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/infinitywarg/zksnark-starter/pulls)
+  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
 </div>
 
 ---
 
-## Table of Contents
+<p align="center"> 💡 Hardhat starter kit to build zero knowledge proof applications using circom and snark.js 💡 <br> </p>
 
-- [What are ZK-SNARKS?](#introduction_zksnarks)
-- [What are Trusted Setups?](#trusted_setups)
-- [How to use this starter?](#how_to_use)
-- [Some important circuit design patterns](#design_patterns)
-  - [Multiplexing Pattern](#multiplexing)
-  - [Merkle Tree Pattern](#merkle_tree)
-- [How to Contribute?](#contribute)
-- [License](#license)
-- [Communicate](#communicate)
-  - [LinkedIn](https://www.linkedin.com/in/anantwar/)
+## 📝 Table of Contents
+- [About](#about)
+- [Getting Started](#getting_started)
+  - [What are zkSNARKS?](#zksnarks)
+  - [What are trusted setups in zkSNARKS?](#trusted_setups)
+- [Usage](#usage)
+  - [npm run install](#install)
+  - [npm run setup](#setup)
+  - [npm run build](#build)
+  - [npm run test:onchain](#test_onchain)
+  - [npm run test:offchain](#test_offchain)
+- [Built Using](#built_using)
+- [TODO](../TODO.md)
+- [Contributing](../CONTRIBUTING.md)
+- [Authors](#authors)
 - [Disclaimer](#disclaimer)
 
-## What are ZK-SNARKS? <a name = "introduction_zksnarks"></a>
+## About <a name = "about"></a>
+Write about 1-2 paragraphs describing the purpose of your project.
 
-**Groth16**
-**Plonk**
-
-## What are Trusted Setups? <a name = "trusted_setups"></a>
-
-**Circuit Specific Setup**
-**Universal & Updatable Setup**
-**Transparent Setup**
-
-## How to use this starter? <a name = "how_to_use"></a>
-
-## Some important circuit design patterns <a name = "design_patterns"></a>
+## Getting Started <a name = "getting_started"></a>
 
 
-## Some important circuit design patterns <a name = "design_patterns"></a>
+### What are zkSNARKS? <a name = "zksnarks"></a>
 
-**Multiplexing Pattern**
+### What are trusted setups in zkSNARKS? <a name = "trusted_setups"></a>
 
-**Merkle Tree Pattern**
 
-## How to Contribute? <a name = "contribute"></a>
+## Usage <a name="usage"></a>
+Add notes about how to use the starter kit.
 
-## License <a name = "license"></a>
+### 🧐 npm run install <a name = "install"></a>
 
-## Communicate <a name = "communicate"></a>
+### 🏁 npm run setup <a name = "setup"></a>
 
-## Disclaimer <a name = "disclaimer"></a>
+### 🔧 npm run build <a name = "build"></a>
 
-zk-snarks starter is under active development. If you have any improvements / suggestions please file an [issue](https://github.com/infinitywarg/zksnark-starter/issues/new).
+### 🚀 npm run test:onchain <a name = "test_onchain"></a>
+
+### 🎈 npm run test:offchain <a name = "test_offchain"></a>
+
+
+## ⛏️ Built Using <a name = "built_using"></a>
+- [hardhat](https://hardhat.org/tutorial) - Smart Contracts Development Framework
+- [circom](https://docs.circom.io/) - Domain Specific Language for writing snark circuits and Circuit Compiler
+- [snarkjs](https://github.com/iden3/snarkjs) - JS library for building circuits, generating & verifying proofs 
+- [npm](https://www.npmjs.com/package/snarkjs) - Node.js package manager
+
+## ✍️ Authors <a name = "authors"></a>
+- [@infinitywarg](https://github.com/infinitywarg) - Idea & Initial work
+
+See also the list of [contributors](https://github.com/infinitywarg/zksnark-starter/contributors) who participated in this project.
+
+##  Disclaimer <a name = "disclaimer"></a>
+- zk-snarks starter is under active development. If you have any improvements and suggestions please file an [issue](https://github.com/infinitywarg/zksnark-starter/issues/new).
