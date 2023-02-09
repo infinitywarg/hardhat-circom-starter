@@ -24,70 +24,47 @@
   - [What are zkSNARKS?](#zksnarks)
   - [What are trusted setups in zkSNARKS?](#trusted_setups)
 - [Usage](#usage)
+  - [npm run install](#install)
+  - [npm run setup](#setup)
+  - [npm run build](#build)
+  - [npm run test:onchain](#test_onchain)
+  - [npm run test:offchain](#test_offchain)
 - [Built Using](#built_using)
 - [TODO](../TODO.md)
 - [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
 - [Disclaimer](#disclaimer)
 
-## 🧐 About <a name = "about"></a>
+## About <a name = "about"></a>
 Write about 1-2 paragraphs describing the purpose of your project.
 
-## 🏁 Getting Started <a name = "getting_started"></a>
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+## Getting Started <a name = "getting_started"></a>
 
-### Prerequisites
-What things you need to install the software and how to install them.
 
-```
-Give examples
-```
+### What are zkSNARKS? <a name = "zksnarks"></a>
 
-### Installing
-A step by step series of examples that tell you how to get a development env running.
+### What are trusted setups in zkSNARKS? <a name = "trusted_setups"></a>
 
-Say what the step will be
 
-```
-Give the example
-```
+## Usage <a name="usage"></a>
+Add notes about how to use the starter kit.
 
-And repeat
+### 🧐 npm run install <a name = "install"></a>
 
-```
-until finished
-```
+### 🏁 npm run setup <a name = "setup"></a>
 
-End with an example of getting some data out of the system or using it for a little demo.
+### 🔧 npm run build <a name = "build"></a>
 
-## 🔧 Running the tests <a name = "tests"></a>
-Explain how to run the automated tests for this system.
+### 🚀 npm run test:onchain <a name = "test_onchain"></a>
 
-### Break down into end to end tests
-Explain what these tests test and why
+### 🎈 npm run test:offchain <a name = "test_offchain"></a>
 
-```
-Give an example
-```
-
-### And coding style tests
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## 🎈 Usage <a name="usage"></a>
-Add notes about how to use the system.
-
-## 🚀 Deployment <a name = "deployment"></a>
-Add additional notes about how to deploy this on a live system.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
-- [hardhat](https://www.mongodb.com/) - Smart Contracts Development Framework
-- [circom](https://expressjs.com/) - Domain Specific Language for writing snark circuits and Circuit Compiler
-- [snarkjs](https://vuejs.org/) - JS library for building circuits, generating & verifying proofs 
-- [npm](https://nodejs.org/en/) - Node.js package manager
+- [hardhat](https://hardhat.org/tutorial) - Smart Contracts Development Framework
+- [circom](https://docs.circom.io/) - Domain Specific Language for writing snark circuits and Circuit Compiler
+- [snarkjs](https://github.com/iden3/snarkjs) - JS library for building circuits, generating & verifying proofs 
+- [npm](https://www.npmjs.com/package/snarkjs) - Node.js package manager
 
 ## ✍️ Authors <a name = "authors"></a>
 - [@infinitywarg](https://github.com/infinitywarg) - Idea & Initial work
