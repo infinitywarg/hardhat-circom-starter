@@ -1,9 +1,37 @@
 {
   "name": "zksnarks-circom",
+  "version": "1.0.0",
+  "description": "ZK-Snarks with Circom",
+  "author": {
+    "name": "Ganesh Anantwar",
+    "email": "ganesh.anantwar@outlook.com"
+  },
+  "keywords": [
+    "zk-snarks",
+    "zksnarks",
+    "zk-proof",
+    "circom",
+    "zksnark",
+    "zk",
+    "snarks",
+    "snark",
+    "zkp",
+    "zk-proofs",
+    "zk-snark",
+    "zk-snarks",
+    "plonk",
+    "powers-of-tau",
+    "circuits",
+    "verifier",
+    "prover",
+    "BN254",
+    "BN128",
+    "alt-bn128"
+  ],
   "scripts": {
     "install": "bash ./scripts/bash/0_install_circom.sh",
     "setup": "bash ./scripts/bash/1_plonk_setup.sh",
-    "build": "bash ./scripts/bash/2_build_circuits.sh",
+    "build": "bash ./scripts/bash/2_build_circuits.sh && npx hardhat compile",
     "test": "echo \"work in progress\"",
     "lint": "echo \"work in progress\""
   },
