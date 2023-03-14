@@ -3,7 +3,7 @@
  <img width=200px height=200px src="images/arrival_louis_has_weapon.jpeg" alt="Project logo"></a>
 </p>
 
-<h3 align="center">zkSNARKS Starter Kit</h3>
+<h3 align="center">ZK-SNARKS with Circom Starter Kit</h3>
 
 <div align="center">
 
