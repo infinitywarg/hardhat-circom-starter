@@ -26,5 +26,6 @@ for f in $(find ${CIRCUIT_PATH}* -name '*.circom'); do
     npx snarkjs zkey export verificationkey ${BUILD_DIR}/${FILE_BASENAME}.zkey ${BUILD_DIR}/${FILE_BASENAME}.vkey.json
     npx snarkjs zkey export solidityverifier ${BUILD_DIR}/${FILE_BASENAME}.zkey ${BUILD_DIR}/${FILE_BASENAME}Verifier.sol
     sed -i -e "s/PlonkVerifier/${FILE_BASENAME}Verifier/g" ${BUILD_DIR}/${FILE_BASENAME}Verifier.sol
+    rm -r ${VERIFIER_PATH}/${FILE_BASENAME}Verifier.sol
     cp ${BUILD_DIR}/${FILE_BASENAME}Verifier.sol ${VERIFIER_PATH}/${FILE_BASENAME}Verifier.sol
 done
