@@ -27,8 +27,8 @@ const config: HardhatUserConfig = {
 	paths: {
 		sources: "./contracts",
 		tests: "./test",
-		cache: "./cache",
-		artifacts: "./artifacts",
+		cache: "./build/cache",
+		artifacts: "./build/artifacts",
 	},
 	mocha: {
 		timeout: 180000, // 3 mins max for running tests
