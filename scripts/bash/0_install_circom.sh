@@ -13,7 +13,7 @@ if [ -z $CHECK ]; then
         circom --help
     fi
 else
-    echo "circom is already installed, exiting"
+    echo "circom is already installed"
     circom --help
 fi
 
