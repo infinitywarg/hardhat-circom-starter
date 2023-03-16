@@ -13,14 +13,14 @@ template Square() {
 template Pythagoras() {
     signal input a;
     signal input b;
-    signal input c2;
+    signal output c2;
 
     component a2 = Square();
     a2.in <== a;
     component b2 = Square();
     b2.in <== b;
 
-    c2 === a2.out * b2.out;
+    c2 <== a2.out + b2.out;
 }
 
-component main {public [c2]} = Pythagoras();
+component main = Pythagoras();
