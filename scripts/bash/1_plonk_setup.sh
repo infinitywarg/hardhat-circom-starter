@@ -5,7 +5,7 @@ RANDOM_BEACON=0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f
 CURVE=bn128
 # CONSTRAINTS=16
 LOCAL_PTAU_PATH="./setup/local/"
-LOCAL_PTAU_PREFIX="PowersOfTau${CONSTRAINTS}_local_"
+LOCAL_PTAU_PREFIX="powersOfTau_local_"
 HERMEZ_PTAU_PATH="./setup/hermez/"
 
 echo "Choose the powersOfTau ceremony to generate trusted-setup public parameters:"
@@ -55,6 +55,7 @@ elif [ "$CEREMONY" == 1 ]; then
    cd ${HERMEZ_PTAU_PATH}
    echo "downloading setup file with 2^20 constraints from Polygon Hermez/zkEVM setup ceremony"
    wget https://hermez.s3-eu-west-1.amazonaws.com/powersOfTau28_hez_final_${CONSTRAINTS}.ptau
+   mv powersOfTau28_hez_final_${CONSTRAINTS}.ptau powersOfTau_hez_final.ptau 
    echo "ptau download complete!"
 fi
 

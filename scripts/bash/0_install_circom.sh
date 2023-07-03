@@ -5,7 +5,6 @@ VERSION="2.1.6"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         echo "installing circom v2.1.6 on Linux"
         mkdir ~/bin
-        export PATH="$HOME/bin:$PATH"
         cd ~/bin
         if [ -d "circom" ]; then
             rm -rf circom
@@ -14,6 +13,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         mv circom-linux-amd64 circom
         chmod +x circom
         circom --help
+        echo "installed circom, please make sure /home/${USER}/bin is in your PATH"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
         echo "installing circom v2.1.6 on MacOS"
         sudo mv ./releases/2.1.3/circom-macos-amd64 /usr/local/bin/circom

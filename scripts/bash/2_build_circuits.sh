@@ -2,13 +2,23 @@
 
 CIRCUIT_PATH="./circuits/"
 BUILD_PATH="./build/circuits/"
-PTAU_FINAL_PATH="./setup/PowersOfTau16_local_final.ptau"
 VERIFIER_PATH="./contracts/verifiers/"
 
 if [ -d "$BUILD_PATH" ]; then
     rm -r ${BUILD_PATH}
 fi
 mkdir -p ${BUILD_PATH}
+
+echo "Choose the trusted-setup used to compile your circuits:"
+echo "0. Local Setup"
+echo "1. Polygon Hermez/zkEVM"
+read CEREMONY
+
+if [ "$CEREMONY" == 0 ]; then
+    PTAU_FINAL_PATH="./setup/local/powersOfTau_local_final.ptau"
+elif [ "$CEREMONY" == 1 ]; then
+    PTAU_FINAL_PATH="./setup/hermez/powersOfTau_hez_final.ptau"
+fi
 
 for f in $(find ${CIRCUIT_PATH}* -name '*.circom'); do
     FILE_FULLNAME=$(basename $f)
