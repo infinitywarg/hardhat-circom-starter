@@ -1,19 +1,21 @@
 #!/bin/bash
 
-CHECK=$(which circom)
+VERSION="2.1.6"
 
-if [ -z $CHECK ]; then
-    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        echo "circom is not installed, installing v2.1.3 on Linux"
-        sudo mv ./releases/2.1.3/circom-linux-amd64 /usr/local/bin/circom
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        echo "installing circom v2.1.6 on Linux"
+        mkdir ~/bin
+        export PATH="$HOME/bin:$PATH"
+        cd ~/bin
+        if [ -d "circom" ]; then
+            rm -rf circom
+        fi
+        wget https://github.com/iden3/circom/releases/download/v${VERSION}/circom-linux-amd64
+        mv circom-linux-amd64 circom
+        chmod +x circom
         circom --help
-    elif [[ "$OSTYPE" == "darwin"* ]]; then
-        echo "circom is not installed, installing v2.1.3 on MacOS"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+        echo "installing circom v2.1.6 on MacOS"
         sudo mv ./releases/2.1.3/circom-macos-amd64 /usr/local/bin/circom
         circom --help
-    fi
-else
-    echo "circom is already installed"
-    circom --help
 fi
-
