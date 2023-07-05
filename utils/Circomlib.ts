@@ -8,7 +8,7 @@ type BabyJubJubPoint = {
 	y: string;
 };
 
-export const randomField = (): Promise<string> => {
+export const randomField = (): string => {
 	return Scalar.e(BigInt(`0x${randomBytes(31).toString("hex")}`).toString()).toString();
 };
 

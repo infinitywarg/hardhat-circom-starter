@@ -2,7 +2,7 @@ import { readFileSync } from "fs";
 import { resolve } from "path";
 import { plonk } from "snarkjs";
 
-export class CircuitController {
+export class Circuit {
 	circuit: string;
 	wasmPath: string;
 	zkeyPath: string;
@@ -24,8 +24,8 @@ export class CircuitController {
 		return { proofJson: proof, proofCalldata: proofCalldata, publicSignals: publicSignals };
 	}
 
-	async verifyProof(proof: any, publicSignals: any): Promise<boolean> {
-		const verify = await plonk.verify(this.vkey, publicSignals, proof);
+	async verifyProof(proofJson: any, publicSignals: any): Promise<boolean> {
+		const verify = await plonk.verify(this.vkey, publicSignals, proofJson);
 		return verify;
 	}
 }
