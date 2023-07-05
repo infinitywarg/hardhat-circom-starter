@@ -1,7 +1,7 @@
 {
-  "name": "zksnarks-circom",
+  "name": "hardhat-circom-starter",
   "version": "1.0.0",
-  "description": "ZK-Snarks with Circom",
+  "description": "ZK-Snarks with Circom, hardhat and typescript",
   "author": {
     "name": "Ganesh Anantwar",
     "email": "ganesh.anantwar@outlook.com"
