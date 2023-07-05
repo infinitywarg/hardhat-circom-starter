@@ -20,7 +20,7 @@ elif [ "$CEREMONY" == 1 ]; then
     PTAU_FINAL_PATH="./setup/hermez/powersOfTau_hez_final.ptau"
 fi
 
-for f in $(find ${CIRCUIT_PATH}* -name '*.circom'); do
+for f in $(find ${CIRCUIT_PATH} -name '*.circom' -maxdepth 1); do
     FILE_FULLNAME=$(basename $f)
     FILE_BASENAME=$(basename $f .circom)
     BUILD_DIR=${BUILD_PATH}${FILE_BASENAME}
