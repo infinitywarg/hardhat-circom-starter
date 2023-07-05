@@ -7,15 +7,15 @@ async function main() {
 	let Verifier;
 	let verifier;
 	let verifierList: string[] = readdirSync(resolve(__dirname, `../contracts/verifiers`));
+	verifierList.shift();
 	let contractListPromises = verifierList.map(async (v) => {
 		let name = v.split(".")[0];
 		Verifier = await ethers.getContractFactory(name, deployer);
 		verifier = await Verifier.deploy();
 		await verifier.deployed();
 		console.log(`${name} deployed to ${verifier.address}`);
-		return { name: name, contract: verifier };
 	});
-	let contractList = await Promise.all(contractListPromises);
+	await Promise.all(contractListPromises);
 }
 
 main().catch((error) => {
