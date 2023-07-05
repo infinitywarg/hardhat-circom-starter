@@ -1,4 +1,4 @@
-pragma circom 2.1.2;
+pragma circom 2.1.6;
 
 // I know a, b and c such that a*b=c
 // withut revealing a, b or c

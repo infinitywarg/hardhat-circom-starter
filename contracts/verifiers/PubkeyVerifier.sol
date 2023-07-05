@@ -21,28 +21,28 @@
 
 pragma solidity >=0.7.0 <0.9.0;
 
-contract PythagorasVerifier {
+contract PubkeyVerifier {
     
-    uint32 constant n =   8;
-    uint16 constant nPublic =  1;
-    uint16 constant nLagrange = 1;
+    uint32 constant n =   4096;
+    uint16 constant nPublic =  2;
+    uint16 constant nLagrange = 2;
     
-    uint256 constant Qmx = 6949275510196322416266490540581233358987407661477794177891992760113069078956;
-    uint256 constant Qmy = 19856822490418486407070274292354311033086899167651998954370875978375713980607;
-    uint256 constant Qlx = 20507221522929833110083158821966734460120030710115973155313349303713046286842;
-    uint256 constant Qly = 15576198496640675484385630850897543241817726421047805980757510988390487807064;
-    uint256 constant Qrx = 5090843842257969787500995644383854975285935704291410877134992437253446198777;
-    uint256 constant Qry = 13719222258621704581100318907854912356261273369730890119977327398154742754075;
-    uint256 constant Qox = 1181374345834226732342312777756536071755963100436713541065980068025960916372;
-    uint256 constant Qoy = 6378193705924654773740521101853591375115332457551428105742012541054185335874;
-    uint256 constant Qcx = 0;
-    uint256 constant Qcy = 0;
-    uint256 constant S1x = 15348933022888186552018635206180812687469174072649470048416229191351653004950;
-    uint256 constant S1y = 14237769814908049830813340247996594864294437884168457582943205749462479171286;
-    uint256 constant S2x = 1975089807093937630638805859364622075465431428379327589631831899992914307500;
-    uint256 constant S2y = 4874117466570410845260527509003287806592495582683700852379065254000784097029;
-    uint256 constant S3x = 18682094596654692065761689219641109344387042843801950896188939412241146811736;
-    uint256 constant S3y = 13110721522210112753615313585821940520294134126309084453227599930429415928053;
+    uint256 constant Qmx = 3985236232376571164233561982258406626206063794569026803845259178670804817223;
+    uint256 constant Qmy = 20129890714627030812949294280941580004738171419438123087483462687910554967861;
+    uint256 constant Qlx = 19740519407908116519769041912032653687092160716464450597954972261815771048254;
+    uint256 constant Qly = 9455349644248522265995795887501498912197195913027140457414204505996541830079;
+    uint256 constant Qrx = 4911588845775070460502021290523196776289169488452000373373396114306639566607;
+    uint256 constant Qry = 2477244880811282682113228423441357940880464906667229212185802916231458996658;
+    uint256 constant Qox = 2301370803269277905495208921549721981778965584095352850685121935929611056712;
+    uint256 constant Qoy = 20236458516968449584263244554519446820275876511170626549841572112032784090645;
+    uint256 constant Qcx = 5405410569924622364698915747898802775498189087249692977763212855629666794175;
+    uint256 constant Qcy = 10965707879659199625526265795213402626369880354739716083055367207830436434001;
+    uint256 constant S1x = 20238946897322532667632857143735979104792432835473671376678242279035421647977;
+    uint256 constant S1y = 6395473336179614675116392026077984841827397646167069018691962948952749072863;
+    uint256 constant S2x = 1698656582737479237890813463200755357160849118353199050633590426985469622663;
+    uint256 constant S2y = 13267043772920995550589431727131532670242309259800092692947058776383008477002;
+    uint256 constant S3x = 16157432199648461267721450162128505920902420379911315560666803627330088320140;
+    uint256 constant S3y = 12426097891159060225828954629275596918843738928204007832453798654687652802726;
     uint256 constant k1 = 2;
     uint256 constant k2 = 3;
     uint256 constant X2x1 = 9007943504780709783641983310076580573576517416134050739191701543475606108186;
@@ -52,7 +52,7 @@ contract PythagorasVerifier {
     
     uint256 constant q = 21888242871839275222246405745257275088548364400416034343698204186575808495617;
     uint256 constant qf = 21888242871839275222246405745257275088696311157297823662689037894645226208583;
-    uint256 constant w1 = 19540430494807482326159819597004422086093766032135589407132600596362845576832;    
+    uint256 constant w1 = 4158865282786404163413953114870269622875596290766033564087307867933865333818;    
     
     uint256 constant G1x = 1;
     uint256 constant G1y = 2;
@@ -99,9 +99,11 @@ contract PythagorasVerifier {
     
     uint16 constant pEval_l1 = 672;
     
+    uint16 constant pEval_l2 = 704;
     
     
-    uint16 constant lastMem = 704;
+    
+    uint16 constant lastMem = 736;
 
     function verifyProof(bytes memory proof, uint[] memory pubSignals) public view returns (bool) {
         assembly {
@@ -204,16 +206,18 @@ contract PythagorasVerifier {
                 let b
 
                 
-                mstore( add(pMem, 704 ), mload( add( pPublic, 32)))
+                mstore( add(pMem, 736 ), mload( add( pPublic, 32)))
                 
-                mstore( add(pMem, 736 ), mload( add( pProof, pA)))
-                mstore( add(pMem, 768 ), mload( add( pProof, add(pA,32))))
-                mstore( add(pMem, 800 ), mload( add( pProof, add(pA,64))))
-                mstore( add(pMem, 832 ), mload( add( pProof, add(pA,96))))
-                mstore( add(pMem, 864 ), mload( add( pProof, add(pA,128))))
-                mstore( add(pMem, 896 ), mload( add( pProof, add(pA,160))))
+                mstore( add(pMem, 768 ), mload( add( pPublic, 64)))
                 
-                b := mod(keccak256(add(pMem, lastMem), 224), q) 
+                mstore( add(pMem, 800 ), mload( add( pProof, pA)))
+                mstore( add(pMem, 832 ), mload( add( pProof, add(pA,32))))
+                mstore( add(pMem, 864 ), mload( add( pProof, add(pA,64))))
+                mstore( add(pMem, 896 ), mload( add( pProof, add(pA,96))))
+                mstore( add(pMem, 928 ), mload( add( pProof, add(pA,128))))
+                mstore( add(pMem, 960 ), mload( add( pProof, add(pA,160))))
+                
+                b := mod(keccak256(add(pMem, lastMem), 256), q) 
                 mstore( add(pMem, pBeta), b)
                 mstore( add(pMem, pGamma), mod(keccak256(add(pMem, pBeta), 32), q))
                 mstore( add(pMem, pAlpha), mod(keccak256(add(pProof, pZ), 64), q))
@@ -221,6 +225,24 @@ contract PythagorasVerifier {
                 a := mod(keccak256(add(pProof, pT1), 192), q)
                 mstore( add(pMem, pXi), a)
                 mstore( add(pMem, pBetaXi), mulmod(b, a, q))
+                
+                a:= mulmod(a, a, q)
+                
+                a:= mulmod(a, a, q)
+                
+                a:= mulmod(a, a, q)
+                
+                a:= mulmod(a, a, q)
+                
+                a:= mulmod(a, a, q)
+                
+                a:= mulmod(a, a, q)
+                
+                a:= mulmod(a, a, q)
+                
+                a:= mulmod(a, a, q)
+                
+                a:= mulmod(a, a, q)
                 
                 a:= mulmod(a, a, q)
                 
@@ -271,9 +293,30 @@ contract PythagorasVerifier {
                     )
                 )
                 
+                w := mulmod(w, w1, q)
                 
                 
-                inverseArray(add(pMem, pZhInv), 2 )
+                mstore(
+                    add(pMem, pEval_l2), 
+                    mulmod(
+                        n, 
+                        mod(
+                            add(
+                                sub(
+                                    mload(add(pMem, pXi)), 
+                                    w
+                                ), 
+                                q
+                            ),
+                            q
+                        ), 
+                        q
+                    )
+                )
+                
+                
+                
+                inverseArray(add(pMem, pZhInv), 3 )
                 
                 let zh := mload(add(pMem, pZh))
                 w := 1
@@ -284,6 +327,24 @@ contract PythagorasVerifier {
                     mulmod(
                         mload(add(pMem, pEval_l1 )),
                         zh,
+                        q
+                    )
+                )
+                
+                
+                w := mulmod(w, w1, q)
+                
+                
+                
+                mstore(
+                    add(pMem, pEval_l2), 
+                    mulmod(
+                        w,
+                        mulmod(
+                            mload(add(pMem, pEval_l2)),
+                            zh,
+                            q
+                        ),
                         q
                     )
                 )
@@ -305,6 +366,21 @@ contract PythagorasVerifier {
                             mulmod(
                                 mload(add(pMem, pEval_l1)),
                                 mload(add(pPub, 32)),
+                                q
+                            )
+                        ),
+                        q
+                    ),
+                    q
+                )
+                 
+                pl := mod(
+                    add(
+                        sub(
+                            pl,  
+                            mulmod(
+                                mload(add(pMem, pEval_l2)),
+                                mload(add(pPub, 64)),
                                 q
                             )
                         ),
