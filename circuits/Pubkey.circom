@@ -8,10 +8,7 @@ include "./templates/BabyJubJub.circom";
 template Pubkey() {
     signal input sk;
     signal output pk[2];
-    component mulBase = PointMulBase();
-    mulBase.scalar <== sk;
-    pk[0] <== mulBase.outpoint[0];
-    pk[1] <== mulBase.outpoint[1];
+    pk <== PointMulBase()(sk);
 }
 
 component main = Pubkey();

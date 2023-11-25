@@ -11,12 +11,9 @@ template Pythagoras() {
     signal input b;
     signal input c2;
 
-    component sqaure1 = Square();
-    sqaure1.in <== a;
-    component square2 = Square();
-    square2.in <== b;
-
-    c2 === sqaure1.out + square2.out;
+    signal a2 <== Square()(a);
+    signal b2 <== Square()(b);
+    c2 === a2 + b2;
 }
 
 component main {public [c2]} = Pythagoras();

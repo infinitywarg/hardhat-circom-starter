@@ -8,10 +8,7 @@ include "../node_modules/circomlib/circuits/poseidon.circom";
 template Hasher() {
     signal input x[2];
     signal output y;
-    component poseidon = Poseidon(2);
-    poseidon.inputs[0] <== x[0];
-    poseidon.inputs[1] <== x[1];
-    y <== poseidon.out;
+    y <== Poseidon(2)(x);
 }
 
 component main = Hasher();
