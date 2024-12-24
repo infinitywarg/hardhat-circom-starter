@@ -16,47 +16,62 @@ describe("Pubkey circuit tests", function () {
 	};
 
 	describe("Verify Offchain", function () {
-		it("Should verify the zksnark for correct signals", async function () {
+		it("Should verify the zksnark for correct witness & circom-generated public signals", async function () {
 			const Pubkey = new Circuit("Pubkey");
 			const sk: string = randomField();
-			const { proofJson, publicSignals } = await Pubkey.generateProof({ sk: sk });
+			const { proof, publicSignals } = (await Pubkey.generateProof({ sk: sk })).offchain;
 			let verify;
-			verify = await Pubkey.verifyProof(proofJson, publicSignals);
-			expect(verify).to.be.true;
-			const pk: BabyJubJubPoint = await pointMulBase(sk);
-			verify = await Pubkey.verifyProof(proofJson, [pk.x, pk.y]);
+			verify = await Pubkey.verifyProof(proof, publicSignals);
 			expect(verify).to.be.true;
 		});
 
-		it("Should not verify zk-snark for incorrect signals", async function () {
+		it("Should verify the zksnark for correct witness & typescript-generated public signals", async function () {
 			const Pubkey = new Circuit("Pubkey");
 			const sk: string = randomField();
-			const { proofJson } = await Pubkey.generateProof({ sk: sk });
-			const verify = await Pubkey.verifyProof(proofJson, [randomField(), randomField()]);
+			const { proof, publicSignals } = (await Pubkey.generateProof({ sk: sk })).offchain;
+			let verify;
+			const pk: BabyJubJubPoint = await pointMulBase(sk);
+			verify = await Pubkey.verifyProof(proof, [pk.x, pk.y]);
+			expect(verify).to.be.true;
+		});
+
+		it("Should not verify zk-snark for incorrect witness", async function () {
+			const Pubkey = new Circuit("Pubkey");
+			const sk: string = randomField();
+			const { proof, publicSignals } = (await Pubkey.generateProof({ sk: sk })).offchain;
+			const verify = await Pubkey.verifyProof(proof, [randomField(), randomField()]);
 			expect(verify).to.be.false;
 		});
 	});
 
 	describe("Verify Onchain", function () {
-		it("Should verify the zksnark for correct signals", async function () {
+		it("Should verify the zksnark for correct witness & circom-generated public signals", async function () {
 			const { verifier, deployer, relayer } = await loadFixture(deployVerifier);
 			const Pubkey = new Circuit("Pubkey");
 			const sk: string = randomField();
-			const { proofCalldata, publicSignals } = await Pubkey.generateProof({ sk: sk });
+			const { proof, publicSignals } = (await Pubkey.generateProof({ sk: sk })).onchain;
 			let verify;
-			verify = await verifier.connect(relayer).verifyProof(proofCalldata, publicSignals);
-			expect(verify).to.be.true;
-			const pk: BabyJubJubPoint = await pointMulBase(sk);
-			verify = await verifier.connect(relayer).verifyProof(proofCalldata, [pk.x, pk.y]);
+			verify = await verifier.connect(relayer).verifyProof(proof, publicSignals);
 			expect(verify).to.be.true;
 		});
 
-		it("Should not verify zk-snark for incorrect signals", async function () {
+		it("Should verify the zksnark for correct witness & typescript-generated public signals", async function () {
 			const { verifier, deployer, relayer } = await loadFixture(deployVerifier);
 			const Pubkey = new Circuit("Pubkey");
 			const sk: string = randomField();
-			const { proofCalldata } = await Pubkey.generateProof({ sk: sk });
-			const verify = await verifier.connect(relayer).verifyProof(proofCalldata, [randomField(), randomField()]);
+			const { proof, publicSignals } = (await Pubkey.generateProof({ sk: sk })).onchain;
+			let verify;
+			const pk: BabyJubJubPoint = await pointMulBase(sk);
+			verify = await verifier.connect(relayer).verifyProof(proof, [pk.x, pk.y]);
+			expect(verify).to.be.true;
+		});
+
+		it("Should not verify zk-snark for incorrect witness", async function () {
+			const { verifier, deployer, relayer } = await loadFixture(deployVerifier);
+			const Pubkey = new Circuit("Pubkey");
+			const sk: string = randomField();
+			const { proof, publicSignals } = (await Pubkey.generateProof({ sk: sk })).onchain;
+			const verify = await verifier.connect(relayer).verifyProof(proof, [randomField(), randomField()]);
 			expect(verify).to.be.false;
 		});
 	});

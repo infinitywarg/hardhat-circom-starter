@@ -12,52 +12,73 @@ describe("Hasher circuit tests", function () {
 		const Verifier: HasherVerifier__factory = await ethers.getContractFactory("HasherVerifier", deployer);
 		const verifier: HasherVerifier = await Verifier.deploy();
 		await verifier.deployed();
-		// console.log(`Verifier contract deployed to ${verifier.address}`);
+		console.log(`Verifier contract deployed to ${verifier.address} from deployer ${deployer.address}`);
 		return { verifier, deployer, relayer };
 	};
 
-	describe("Verify Offchain", function () {
-		it("Should verify the zksnark for correct signals", async function () {
+	describe("Verify Offchain in Typescript", function () {
+		it("Should verify the zksnark for correct witness & circom-generated public signals", async function () {
 			const Hasher = new Circuit("Hasher");
 			const x: string[] = [randomField(), randomField()];
-			const { proofJson, publicSignals } = await Hasher.generateProof({ x: x });
+			const { offchain } = await Hasher.generateProof({ x: x });
+			const { proof, publicSignals } = offchain;
 			let verify;
-			verify = await Hasher.verifyProof(proofJson, publicSignals);
-			expect(verify).to.be.true;
-			const y: string = await poseidon(x);
-			verify = await Hasher.verifyProof(proofJson, [y]);
+			verify = await Hasher.verifyProof(proof, publicSignals);
 			expect(verify).to.be.true;
 		});
 
-		it("Should not verify zk-snark for incorrect signals", async function () {
+		it("Should verify the zksnark for correct witness & typescript-generated public signals", async function () {
 			const Hasher = new Circuit("Hasher");
 			const x: string[] = [randomField(), randomField()];
-			const { proofJson } = await Hasher.generateProof({ x: x });
-			const verify = await Hasher.verifyProof(proofJson, [randomField()]);
+			const { offchain } = await Hasher.generateProof({ x: x });
+			const { proof, publicSignals } = offchain;
+			let verify;
+			const y: string = await poseidon(x);
+			verify = await Hasher.verifyProof(proof, [y]);
+			expect(verify).to.be.true;
+		});
+
+		it("Should not verify zk-snark for incorrect witness", async function () {
+			const Hasher = new Circuit("Hasher");
+			const x: string[] = [randomField(), randomField()];
+			const { offchain } = await Hasher.generateProof({ x: x });
+			const { proof, publicSignals } = offchain;
+			const verify = await Hasher.verifyProof(proof, [randomField()]);
 			expect(verify).to.be.false;
 		});
 	});
 
-	describe("Verify Onchain", function () {
-		it("Should verify the zksnark for correct signals", async function () {
+	describe("Verify Onchain in Solidity", function () {
+		it("Should verify the zksnark for correct witness & circom-generated public signals", async function () {
 			const { verifier, deployer, relayer } = await loadFixture(deployVerifier);
 			const Hasher = new Circuit("Hasher");
 			const x: string[] = [randomField(), randomField()];
-			const { proofCalldata, publicSignals } = await Hasher.generateProof({ x: x });
+			const { onchain } = await Hasher.generateProof({ x: x });
+			const { proof, publicSignals } = onchain;
 			let verify;
-			verify = await verifier.connect(relayer).verifyProof(proofCalldata, publicSignals);
-			expect(verify).to.be.true;
-			const y: string = await poseidon(x);
-			verify = await verifier.connect(relayer).verifyProof(proofCalldata, [y]);
+			verify = await verifier.connect(relayer).verifyProof(proof, publicSignals);
 			expect(verify).to.be.true;
 		});
 
-		it("Should not verify zk-snark for incorrect signals", async function () {
+		it("Should verify the zksnark for correct witness & typescript-generated public signals", async function () {
 			const { verifier, deployer, relayer } = await loadFixture(deployVerifier);
 			const Hasher = new Circuit("Hasher");
 			const x: string[] = [randomField(), randomField()];
-			const { proofCalldata } = await Hasher.generateProof({ x: x });
-			const verify = await verifier.connect(relayer).verifyProof(proofCalldata, [randomField()]);
+			const { onchain } = await Hasher.generateProof({ x: x });
+			const { proof, publicSignals } = onchain;
+			let verify;
+			const y: string = await poseidon(x);
+			verify = await verifier.connect(relayer).verifyProof(proof, [y]);
+			expect(verify).to.be.true;
+		});
+
+		it("Should not verify zk-snark for incorrect witness", async function () {
+			const { verifier, deployer, relayer } = await loadFixture(deployVerifier);
+			const Hasher = new Circuit("Hasher");
+			const x: string[] = [randomField(), randomField()];
+			const { onchain } = await Hasher.generateProof({ x: x });
+			const { proof, publicSignals } = onchain;
+			const verify = await verifier.connect(relayer).verifyProof(proof, [randomField()]);
 			expect(verify).to.be.false;
 		});
 	});
