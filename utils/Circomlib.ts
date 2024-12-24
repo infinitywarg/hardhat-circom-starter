@@ -9,7 +9,9 @@ export type BabyJubJubPoint = {
 };
 
 export const randomField = (): string => {
-	return Scalar.e(BigInt(`0x${randomBytes(31).toString("hex")}`).toString()).toString();
+	// return Scalar.e(BigInt(`0x${randomBytes(31).toString("hex")}`).toString()).toString();
+	const random = BigInt(`0x${randomBytes(32).toString("hex")}`) >> BigInt(4);
+	return `0x${random.toString(16).padStart(64, "0")}`;
 };
 
 export const poseidon = async (inputs: string[]) => {

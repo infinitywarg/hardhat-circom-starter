@@ -19,9 +19,11 @@ export class Circuit {
 
 	async generateProof(inputs: any): Promise<any> {
 		const { proof, publicSignals } = await plonk.fullProve(inputs, this.wasmPath, this.zkeyPath);
-		let proofCalldata = await plonk.exportSolidityCallData(proof, publicSignals);
-		proofCalldata = proofCalldata.split(",")[0].toString();
-		return { proofJson: proof, proofCalldata: proofCalldata, publicSignals: publicSignals };
+		const calldata: string = (await plonk.exportSolidityCallData(proof, publicSignals)).split("][");
+		return {
+			offchain: { proof: proof, publicSignals: publicSignals },
+			onchain: { proof: JSON.parse(calldata[0] + "]"), publicSignals: JSON.parse("[" + calldata[1]) },
+		};
 	}
 
 	async verifyProof(proofJson: any, publicSignals: any): Promise<boolean> {
